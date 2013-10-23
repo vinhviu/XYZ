@@ -1,0 +1,486 @@
+﻿
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Email App</title>
+    <link href="css/index.css" rel="stylesheet" />
+    <script src="js/JavaScript.js"></script>
+    <script src="js/index.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script src="js/jquery.nicescroll.plus.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#nav').niceScroll({ cursorcolor: "#00F" });
+            $('#list-email').niceScroll({ cursorcolor: "#00f" });
+            $('.nd').niceScroll({ cursorcolor: "#00f" });
+
+            $('#icon').click(function () {
+                if ($('#icon').attr('show-nav') == '0') {
+                    $('#icon').attr('show-nav', '1');
+                    $('#nd-email').hide('fast');
+                    $('#list-email').hide('fast');
+                    $('#nav').show('fast');
+               }
+                else {
+                    $('#icon').attr('show-nav', '0');
+                    $('.nav-item').hide(400);
+                    $('#nav').hide(400);
+                    $('.nav-item').show('fast');
+                    $('#list-email').show('fast');
+                }
+            });
+
+            $('.nav-sub-item').click(function () {
+                $('#icon').attr('show-nav', '0');
+                $('.nav-item').hide(400);
+                $('#nav').hide(400);
+                $('.nav-item').show('fast');
+                $('#list-email').show('fast');
+            });
+
+            $('.checkbox').click(function () {
+                if ($(this).attr('ischeck') == '1') {
+                    $(this).attr('ischeck', '0');
+                    $(this).removeClass('check');
+                    $(this).addClass('uncheck');
+                    
+                    var select = $('.checkbox');
+                    var kt = "0";
+
+                    $.each(select, function () {
+                        if ($(this).attr('ischeck')=='1') {
+                            $('#delete').removeClass('none');
+                            $('#delete').addClass('block');
+                            kt = "1";
+                            return;
+                        }
+                    });
+                    
+                    if (kt=="0") {
+                        $('#delete').removeClass('block');
+                        $('#delete').addClass('none');
+                    }
+                }
+                else {
+                    $(this).attr('ischeck', '1');
+                    $(this).removeClass('uncheck');
+                    $(this).addClass('check');
+                    $('#delete').removeClass('none');
+                    $('#delete').addClass('block');
+                }
+            });
+
+            $('.sign').click(function () {
+                if ($(this).attr('issign') == '1') {
+                    $(this).attr('issign', '0');
+                    $(this).removeClass('signed');
+                    $(this).addClass('unsigned');
+                }
+                else {
+                    $(this).attr('issign', '1');
+                    $(this).removeClass('unsigned');
+                    $(this).addClass('signed');
+                }
+            });
+            
+            $('.email-content').click(function () {
+                $('#list-email').hide('fast');
+                $('#nd-email').show('fast');
+            });
+
+            $('#sign-email').click(function () {
+                if ($(this).attr('issign') == '0') {
+                    $(this).attr('issign', '1');
+                    $(this).removeClass('unsigned-email');
+                    $(this).addClass('signed-email');
+                }
+                else {
+                    $(this).attr('issign', '0');
+                    $(this).removeClass('signed-email');
+                    $(this).addClass('unsigned-email');
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="main">
+        <div id="header">
+            <div class="new-icon" id="icon" show-nav="0">&nbsp;</div>
+            <div id="user">
+                <table class="tb">
+                    <tr>
+                        <td class="aaa" style="font-weight:bold;">Hộp thư ưu tiên</td>
+                    </tr>
+                    <tr>
+                        <td class="aaa">vinhbq1902@gmail.com</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="new-icon none" id="delete" isshow="0">&nbsp;</div>
+            <div class="new-icon" id="new">&nbsp;</div>
+            <div class="clearer"></div>
+        </div>
+        <div id="content">
+
+            <div id="nav">
+
+                <div class="nav-item">HỘP THƯ ĐẾN</div>
+
+                <div class="nav-sub-item">
+                    <table border="0" class="tb-nav-item">
+                        <tr>
+                            <td id="td-main" class="nav-item-icon"></td>
+                            <td class="nav-item-content">
+                                Chính
+                            </td>
+                            <td><span class="nav-item-quantity">12</span></td>
+                        </tr>
+                    </table>
+                    <div class="clearer"></div>
+                </div>
+                
+                <div class="nav-sub-item">
+                    <table border="0" class="tb-nav-item">
+                        <tr>
+                            <td id="td-social" class="nav-item-icon"></td>
+                            <td class="nav-item-content">
+                                Xã hội
+                            </td>
+                            <td><span class="nav-item-quantity">12</span></td>
+                        </tr>
+                    </table>
+                    <div class="clearer"></div>
+                </div>
+
+                <div class="nav-sub-item">
+                    <table border="0" class="tb-nav-item">
+                        <tr>
+                            <td id="td-ads" class="nav-item-icon"></td>
+                            <td class="nav-item-content">
+                                Quảng cáo
+                            </td>
+                            <td><span class="nav-item-quantity">12</span></td>
+                        </tr>
+                    </table>
+                    <div class="clearer"></div>
+                </div>
+
+                <div class="nav-sub-item">
+                    <table border="0" class="tb-nav-item">
+                        <tr>
+                            <td class="nav-item-content">
+                                Hộp thư ưu tiên
+                            </td>
+                            <td><span class="nav-item-quantity">12</span></td>
+                        </tr>
+                    </table>
+                    <div class="clearer"></div>
+                </div>
+
+                <div class="nav-item">TẤT CẢ NHÃN</div>
+
+                <div class="nav-sub-item">
+                    <table border="0" class="tb-nav-item">
+                        <tr>
+                            <td class="nav-item-content">
+                                Được gắn dấu sao
+                            </td>
+                            <td><span class="nav-item-quantity">12</span></td>
+                        </tr>
+                    </table>
+                    <div class="clearer"></div>
+                </div>
+
+                <div class="nav-sub-item">
+                    <table border="0" class="tb-nav-item">
+                        <tr>
+                            <td class="nav-item-content">
+                                Quan trọng
+                            </td>
+                            <td><span class="nav-item-quantity">12</span></td>
+                        </tr>
+                    </table>
+                    <div class="clearer"></div>
+                </div>
+
+               <div class="nav-sub-item">
+                    <table border="0" class="tb-nav-item">
+                        <tr>
+                            <td class="nav-item-content">
+                                Cuộc trò chuyện
+                            </td>
+                            <td><span class="nav-item-quantity">12</span></td>
+                        </tr>
+                    </table>
+                    <div class="clearer"></div>
+                </div>
+
+                <div class="nav-sub-item">
+                    <table border="0" class="tb-nav-item">
+                        <tr>
+                            <td class="nav-item-content">
+                                Đã gửi
+                            </td>
+                            <td><span class="nav-item-quantity">12</span></td>
+                        </tr>
+                    </table>
+                    <div class="clearer"></div>
+                </div>
+
+                <div class="nav-sub-item">
+                    <table border="0" class="tb-nav-item">
+                        <tr>
+                            <td class="nav-item-content">
+                                Hộ thư đi
+                            </td>
+                            <td><span class="nav-item-quantity">12</span></td>
+                        </tr>
+                    </table>
+                    <div class="clearer"></div>
+                </div>
+
+                <div class="nav-sub-item">
+                    <table border="0" class="tb-nav-item">
+                        <tr>
+                            <td class="nav-item-content">
+                                Tin nháp
+                            </td>
+                            <td><span class="nav-item-quantity">12</span></td>
+                        </tr>
+                    </table>
+                    <div class="clearer"></div>
+                </div>
+
+                <div class="nav-sub-item">
+                    <table border="0" class="tb-nav-item">
+                        <tr>
+                            <td class="nav-item-content">
+                                Tất cả thư
+                            </td>
+                            <td><span class="nav-item-quantity">12</span></td>
+                        </tr>
+                    </table>
+                    <div class="clearer"></div>
+                </div>
+
+            </div>
+
+            <div id="list-email">
+                <div class="email-item">
+                    <table style="height:50px">
+                        <tr style="height:50px">
+                            <td ischeck="0" class="checkbox uncheck"></td>
+                            <td style="width:100%">
+                                <div class="email-content">
+                                    <table class="tb-email-content">
+                                        <tr>
+                                            <td class="row-content" style="font-weight:bold;"><span class="sender">Song, Toi</span><span class="datetime">20/12/1992 5:40 pm</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Songoku sieu xay da canada lahabana</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Ha Ha Ha tai sao lai the ...</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td issign="0" class="sign unsigned"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="email-item">
+                    <table style="height:50px">
+                        <tr style="height:50px">
+                            <td ischeck="0" class="checkbox uncheck"></td>
+                            <td style="width:100%">
+                                <div class="email-content">
+                                    <table class="tb-email-content">
+                                        <tr>
+                                            <td class="row-content" style="font-weight:bold;"><span class="sender">Song, Toi</span><span class="datetime">20/12/1992 5:40 pm</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Songoku sieu xay da canada lahabana</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Ha Ha Ha tai sao lai the ...</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td issign="0" class="sign unsigned"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="email-item">
+                    <table style="height:50px">
+                        <tr style="height:50px">
+                            <td ischeck="0" class="checkbox uncheck"></td>
+                            <td style="width:100%">
+                                <div class="email-content">
+                                    <table class="tb-email-content">
+                                        <tr>
+                                            <td class="row-content" style="font-weight:bold;"><span class="sender">Song, Toi</span><span class="datetime">20/12/1992 5:40 pm</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Songoku sieu xay da canada lahabana</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Ha Ha Ha tai sao lai the ...</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td issign="0" class="sign unsigned"></td>
+                        </tr>
+                    </table>
+                </div>   
+                <div class="email-item">
+                    <table style="height:50px">
+                        <tr style="height:50px">
+                            <td ischeck="0" class="checkbox uncheck"></td>
+                            <td style="width:100%">
+                                <div class="email-content">
+                                    <table class="tb-email-content">
+                                        <tr>
+                                            <td class="row-content" style="font-weight:bold;"><span class="sender">Song, Toi</span><span class="datetime">20/12/1992 5:40 pm</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Songoku sieu xay da canada lahabana</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Ha Ha Ha tai sao lai the ...</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td issign="0" class="sign unsigned"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="email-item">
+                    <table style="height:50px">
+                        <tr style="height:50px">
+                            <td ischeck="0" class="checkbox uncheck"></td>
+                            <td style="width:100%">
+                                <div class="email-content">
+                                    <table class="tb-email-content">
+                                        <tr>
+                                            <td class="row-content" style="font-weight:bold;"><span class="sender">Song, Toi</span><span class="datetime">20/12/1992 5:40 pm</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Songoku sieu xay da canada lahabana</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Ha Ha Ha tai sao lai the ...</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td issign="0" class="sign unsigned"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="email-item">
+                    <table style="height:50px">
+                        <tr style="height:50px">
+                            <td ischeck="0" class="checkbox uncheck"></td>
+                            <td style="width:100%">
+                                <div class="email-content">
+                                    <table class="tb-email-content">
+                                        <tr>
+                                            <td class="row-content" style="font-weight:bold;"><span class="sender">Song, Toi</span><span class="datetime">20/12/1992 5:40 pm</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Songoku sieu xay da canada lahabana</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Ha Ha Ha tai sao lai the ...</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td issign="0" class="sign unsigned"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="email-item">
+                    <table style="height:50px">
+                        <tr style="height:50px">
+                            <td ischeck="0" class="checkbox uncheck"></td>
+                            <td style="width:100%">
+                                <div class="email-content">
+                                    <table class="tb-email-content">
+                                        <tr>
+                                            <td class="row-content" style="font-weight:bold;"><span class="sender">Song, Toi</span><span class="datetime">20/12/1992 5:40 pm</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Songoku sieu xay da canada lahabana</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Ha Ha Ha tai sao lai the ...</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td issign="0" class="sign unsigned"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="email-item">
+                    <table style="height:50px">
+                        <tr style="height:50px">
+                            <td ischeck="0" class="checkbox uncheck"></td>
+                            <td style="width:100%">
+                                <div class="email-content">
+                                    <table class="tb-email-content">
+                                        <tr>
+                                            <td class="row-content" style="font-weight:bold;"><span class="sender">Song, Toi</span><span class="datetime">20/12/1992 5:40 pm</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Songoku sieu xay da canada lahabana</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="row-content">Ha Ha Ha tai sao lai the ...</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </td>
+                            <td issign="0" class="sign unsigned"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="clearer"></div>
+            </div>
+
+            <div id="nd-email">
+                <div class="sender-content">
+                    <div class="clearer"></div>
+                    <div id="sender-img"></div>
+                    <div id="sender-account">
+                        <table class="tb-sender-account">
+                            <tr>
+                                <td>Đức Huy Phạm</td>
+                            </tr>
+                            <tr>
+                                <td>phamduchuy@gmail.com</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="delete-email">&nbsp;</div>
+                    <div issign="0" id="sign-email" class="unsigned-email">&nbsp;</div>
+                    <div id="reply-email"></div>
+                </div>
+                <div class="nd">
+                    Tai sao lai the ma khong la the nay ma lai la the kia ...
+                </div>
+            </div>
+            <div class="clearer"></div>
+        </div>
+    </div>
+</body>
+</html>
